@@ -7,6 +7,8 @@
 $path_desktop = "D:\Users\BKU\HungTruong\Desktop"
 $path_signature = "D:\Users\BKU\HungTruong\AppData(Roaming)\Microsoft\Signatures"
 $path_outlook = "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE"
+$path_bookmark = "C:\Users\HungTruong\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+$path_chrome = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
 
 $quickstart_path = "$PSScriptRoot\QuickStart"
 $path_show_desktop = "$quickstart_path\Show_Desktop.ps1"
@@ -18,6 +20,8 @@ $path_close_work = "$quickstart_path\Work\Close"
 $path_close_study = "$quickstart_path\Study\Close"
 $path_signature_work = "$quickstart_path\Work\Signature"
 $path_signature_study = "$quickstart_path\Study\Signature"
+$path_bookmark_work = "$quickstart_path\Work\Bookmarks"
+$path_bookmark_study = "$quickstart_path\Study\Bookmarks"
 
 # $path_taskbar = "D:\Users\BKU\HungTruong\AppData(Roaming)\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
 # $path_taskbar_none = "D:\Users\BKU\HungTruong\Documents\QuickStart\_TaskLeiste\None"
@@ -106,6 +110,14 @@ function ChangeSignature($new_signature_path) {
     }
     Start-Process $path_outlook -WindowStyle Hidden
 }
+function ChangeBookmarkChrome($new_bookmark_path) {
+    Write-Host "----------ChangeBookmarkChrome-------------------------"
+    if(!(([string] (tasklist /fi "imagename eq chrome.exe")).Contains("INFORMATION"))){
+        Stop-Process -Name "chrome"
+    }
+    Copy-Item -Path "$new_bookmark_path" -Destination "$path_bookmark" -Force
+    Start-Process $path_chrome
+}
 # function RestartExplorer{
 #     Stop-Process -Name "explorer"
 #     Start-Process "C:\Windows\explorer.exe"
@@ -136,6 +148,7 @@ Switch($option) {
     }
     1{
         ChangeSignature($path_signature_work)
+        ChangeBookmarkChrome($path_bookmark_work)
         CloseFile($path_close_work)
         OpenFile($path_open_work)
         DeleteFromDesktop($path_study)
@@ -144,6 +157,7 @@ Switch($option) {
     }
     2{
         ChangeSignature($path_signature_study)
+        ChangeBookmarkChrome($path_bookmark_study)
         CloseFile($path_close_study)
         OpenFile($path_open_study)
         DeleteFromDesktop($path_work)
