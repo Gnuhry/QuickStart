@@ -3,8 +3,8 @@
 # Author: Hung Truong, Jannik Junker
 # Date:   27 March 2020
 #==========================================
-$user1 = "C:\Users\HungTruong"
-$user2 = "D:\Users\BKU\HungTruong" 
+$user1 = "" #C:
+$user2 = "" #D: (BKU)
 $programm_files = "C:\Program Files (x86)"
 
 $path_desktop = "$user2\Desktop"
