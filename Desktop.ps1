@@ -11,7 +11,7 @@ $path_desktop = "$user2\Desktop"
 $path_signature = "$user2\AppData(Roaming)\Microsoft\Signatures"
 $path_outlook = "$programm_files\Microsoft Office\root\Office16\OUTLOOK.EXE"
 $path_bookmark = "$user1\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
-$path_chrome = "$programm_files (x86)\Google\Chrome\Application\chrome.exe"
+$path_chrome = "$programm_files\Google\Chrome\Application\chrome.exe"
 
 $path_set_up = "$PSScriptRoot\SetUp.ps1"
 $quickstart_path = "$PSScriptRoot\QuickStart"
