@@ -190,8 +190,8 @@ $bool = 1
 while($bool -eq 1){
     $bool = 0
     $option = Read-Host "0 - Nothing
-    1 - Work
-    2 - Study"
+1 - Work
+2 - Study"
     TestForDircetories
     Switch($option) {
         0{
