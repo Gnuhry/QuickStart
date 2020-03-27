@@ -3,11 +3,15 @@
 # Author: Hung Truong, Jannik Junker
 # Date:   27 March 2020
 #==========================================
-$path_desktop = "Desktop"
-$path_signature = "D:\Users\BKU\HungTruong\AppData(Roaming)\Microsoft\Signatures"
-$path_outlook = "C:\Program Files (x86)\Microsoft Office\root\Office16\OUTLOOK.EXE"
-$path_bookmark = "C:\Users\HungTruong\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
-$path_chrome = "C:\Program Files (x86)\Google\Chrome\Application\chrome.exe"
+$user1 = "" #C:
+$user2 = "" #D: (BKU)
+$programm_files = "C:\Program Files (x86)"
+
+$path_desktop = "$user2\Desktop"
+$path_signature = "$user2\AppData(Roaming)\Microsoft\Signatures"
+$path_outlook = "$programm_files\Microsoft Office\root\Office16\OUTLOOK.EXE"
+$path_bookmark = "$user1\AppData\Local\Google\Chrome\User Data\Default\Bookmarks"
+$path_chrome = "$programm_files (x86)\Google\Chrome\Application\chrome.exe"
 
 $path_set_up = "$PSScriptRoot\SetUp.ps1"
 $quickstart_path = "$PSScriptRoot\QuickStart"
@@ -23,10 +27,10 @@ $path_signature_study = "$quickstart_path\Study\Signature"
 $path_bookmark_work = "$quickstart_path\Work\Bookmarks"
 $path_bookmark_study = "$quickstart_path\Study\Bookmarks"
 
-# $path_taskbar = "D:\Users\BKU\HungTruong\AppData(Roaming)\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
-# $path_taskbar_none = "D:\Users\BKU\HungTruong\Documents\QuickStart\_TaskLeiste\None"
-# $path_taskbar_work = "D:\Users\BKU\HungTruong\Documents\QuickStart\_TaskLeiste\Arbeit"
-# $path_taskbar_study = "D:\Users\BKU\HungTruong\Documents\QuickStart\_TaskLeiste\Studium"
+# $path_taskbar = "$user2\AppData(Roaming)\Microsoft\Internet Explorer\Quick Launch\User Pinned\TaskBar"
+# $path_taskbar_none = "$quickstart_path\_TaskLeiste\None"
+# $path_taskbar_work = "$quickstart_path\_TaskLeiste\Arbeit"
+# $path_taskbar_study = "$quickstart_path\_TaskLeiste\Studium"
 
 
 function DeleteFromDesktop($delete_files_path) {
@@ -186,8 +190,8 @@ $bool = 1
 while($bool -eq 1){
     $bool = 0
     $option = Read-Host "0 - Nothing
-                            1 - Work
-                            2 - Study"
+    1 - Work
+    2 - Study"
     TestForDircetories
     Switch($option) {
         0{
