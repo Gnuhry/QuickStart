@@ -3,8 +3,8 @@
 # Author: Hung Truong, Jannik Junker
 # Date:   27 March 2020
 #==========================================
-$user1 = "" #C:
-$user2 = "" #D: (BKU)
+$user1 = "C:\Users\HungTruong"
+$user2 = "D:\Users\BKU\HungTruong" 
 $programm_files = "C:\Program Files (x86)"
 
 $path_desktop = "$user2\Desktop"
@@ -190,8 +190,8 @@ $bool = 1
 while($bool -eq 1){
     $bool = 0
     $option = Read-Host "0 - Nothing
-    1 - Work
-    2 - Study"
+1 - Work
+2 - Study"
     TestForDircetories
     Switch($option) {
         0{
